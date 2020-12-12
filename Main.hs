@@ -5,6 +5,8 @@ import Graphics.Gloss.Data.Picture
 import Graphics.Gloss.Interface.Pure.Game
     (Event (EventKey), Key (SpecialKey), KeyState (Up), SpecialKey (KeyF1, KeyF2, KeyF3, KeyF4, KeyF4, KeyF5, KeyF6, KeyF7))
 
+import Board
+
 -- GRAPHICS AND USER INPUT
 
 main :: IO ()
@@ -19,20 +21,20 @@ main = play
 
 renderBoard :: Board -> Picture
 renderBoard b =
-    pictures $ [  --lineas a lo horizontal
+    pictures $ [  --horizontal lines
                   translate 0 200 (rectangleSolid 700 3),
                   translate 0 100 (rectangleSolid 700 3),
                   translate 0 0 (rectangleSolid 700 3),
                   translate 0 (-100) (rectangleSolid 700 3),
                   translate 0 (-200) (rectangleSolid 700 3),
-                  --lineas a lo vertical
+                  --vertical lines
                   translate 250 0 (rectangleSolid 3 600),
                   translate 150 0 (rectangleSolid 3 600),
                   translate 50 0 (rectangleSolid 3 600),
                   translate (-50) 0 (rectangleSolid 3 600),
                   translate (-150) 0 (rectangleSolid 3 600),
                   translate (-250) 0 (rectangleSolid 3 600)
-               ] ++ -- aqui van las fichas
+               ] ++ -- X's and 0's
                [ translate (x*100) (y*100) $ 
                 renderMarker (b??(relate y, relate x))
                | x <- [-3, -2, -1, 0, 1, 2, 3]
