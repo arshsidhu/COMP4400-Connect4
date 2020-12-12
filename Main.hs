@@ -1,10 +1,11 @@
-import Graphics.Gloss (play, white, red, green, greyN, Display(InWindow))
+import Graphics.Gloss (play, white, greyN, black, Display(InWindow))
 import Graphics.Gloss.Data.Picture
     (Picture, rectangleSolid, thickCircle, translate, pictures, color, rotate,
      blank)
 import Graphics.Gloss.Interface.Pure.Game
     (Event (EventKey), Key (Char), KeyState (Up))
-    
+
+import AI
 import Board
 
 -- GRAPHICS AND USER INPUT
@@ -41,9 +42,9 @@ renderBoard b =
                , y <- [-2.5, -1.5, -0.5, 0.5, 1.5, 2.5] ]
 
 renderMarker :: Tile -> Picture
-renderMarker X = color red $ rotate 45 $
+renderMarker X = color black $ rotate 45 $
                      pictures [rectangleSolid 90 10, rectangleSolid 10 90]
-renderMarker O = color green $ thickCircle 35 10
+renderMarker O = color black $ thickCircle 35 10
 renderMarker _ = blank
 
 relate :: Float -> Int
