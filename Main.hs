@@ -1,10 +1,10 @@
-import Graphics.Gloss (play, white, red, green, Display(InWindow))
+import Graphics.Gloss (play, white, red, green, greyN, Display(InWindow))
 import Graphics.Gloss.Data.Picture
     (Picture, rectangleSolid, thickCircle, translate, pictures, color, rotate,
      blank)
 import Graphics.Gloss.Interface.Pure.Game
-    (Event (EventKey), Key (SpecialKey), KeyState (Up), SpecialKey (KeyF1, KeyF2, KeyF3, KeyF4, KeyF4, KeyF5, KeyF6, KeyF7))
-
+    (Event (EventKey), Key (Char), KeyState (Up))
+    
 import Board
 
 -- GRAPHICS AND USER INPUT
@@ -12,12 +12,12 @@ import Board
 main :: IO ()
 main = play
     (InWindow "Connect4" (700, 600) (100, 100))
-    white -- background color
+    (greyN 0.5) -- background color
     20
     emptyBoard -- initial world
     renderBoard -- function that makes the world a picture
     handleInput -- handle input events
-    step -- step 
+    move -- current move  
 
 renderBoard :: Board -> Picture
 renderBoard b =
@@ -68,43 +68,43 @@ currentPlayer b | even $ length $ emptySpaces b = X
                 | otherwise                   = O
 
 handleInput :: Event -> Board -> Board
-handleInput (EventKey (SpecialKey KeyF1) Up _ _) b =
+handleInput (EventKey (Char '1') Up _ _) b =
   if b??y == EmptyTile && currentPlayer b == X && ((tileWins b X) == False) && (tileWins b O == False)
     then put b X y
     else b
     where y = (rowOfCol b (dimN dim, 1), 1)
 
-handleInput (EventKey (SpecialKey KeyF2) Up _ _) b =
+handleInput (EventKey (Char '2') Up _ _) b =
   if b??y == EmptyTile && currentPlayer b == X && ((tileWins b X) == False) && (tileWins b O == False)
     then put b X y
     else b
     where y = (rowOfCol b (dimN dim, 2), 2)
 
-handleInput (EventKey (SpecialKey KeyF3) Up _ _) b =
+handleInput (EventKey (Char '3') Up _ _) b =
   if b??y == EmptyTile && currentPlayer b == X && ((tileWins b X) == False) && (tileWins b O == False)
     then put b X y
     else b
     where y = (rowOfCol b (dimN dim, 3), 3)
 
-handleInput (EventKey (SpecialKey KeyF4) Up _ _) b =
+handleInput (EventKey (Char '4') Up _ _) b =
   if b??y == EmptyTile && currentPlayer b == X && ((tileWins b X) == False) && (tileWins b O == False)
     then put b X y
     else b
     where y = (rowOfCol b (dimN dim, 4), 4)
 
-handleInput (EventKey (SpecialKey KeyF5) Up _ _) b =
+handleInput (EventKey (Char '5') Up _ _) b =
   if b??y == EmptyTile && currentPlayer b == X && ((tileWins b X) == False) && (tileWins b O == False)
     then put b X y
     else b
     where y = (rowOfCol b (dimN dim, 5), 5)
 
-handleInput (EventKey (SpecialKey KeyF6) Up _ _) b =
+handleInput (EventKey (Char '6') Up _ _) b =
   if b??y == EmptyTile && currentPlayer b == X && ((tileWins b X) == False) && (tileWins b O == False)
     then put b X y
     else b
     where y = (rowOfCol b (dimN dim, 6), 6)
 
-handleInput (EventKey (SpecialKey KeyF7) Up _ _) b =
+handleInput (EventKey (Char '7') Up _ _) b =
   if b??y == EmptyTile && currentPlayer b == X && ((tileWins b X) == False) && (tileWins b O == False)
     then put b X y
     else b
@@ -112,8 +112,8 @@ handleInput (EventKey (SpecialKey KeyF7) Up _ _) b =
 
 handleInput _ b = b
 
-step :: Float -> Board -> Board
-step _ b =
+move :: Float -> Board -> Board
+move _ b =
     if currentPlayer b == O && (not . null . emptySpaces $ b) && ((tileWins b X) == False) && (tileWins b O == False)
     then put b O (computeMove O b) 
     else b
