@@ -13,15 +13,15 @@ You will need to be able to compile and run Haskell (.hs) files. The following a
 
 ### MacOS
 
-``` brew install ghc ```
-``` brew install cabal-install ```
-``` cabal install gloss ```
+- ``` brew install ghc ```
+- ``` brew install cabal-install ```
+- ``` cabal install gloss ```
 
 ### Linux
 
-``` sudo apt-get install ghc ```
-``` sudo apt-get install cabal-install ```
-``` cabal install gloss ```
+- ``` sudo apt-get install ghc ```
+- ``` sudo apt-get install cabal-install ```
+- ``` cabal install gloss ```
 
 ### Windows
 
