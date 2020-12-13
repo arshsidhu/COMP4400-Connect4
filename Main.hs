@@ -1,3 +1,8 @@
+-- COMP4400 Final Project
+-- Arshdeep Sidhu 104567665
+-- Ferruccio Sisti 104807246
+-- Main file, handles all the graphics and user input
+
 import Graphics.Gloss (play, white, greyN, black, Display(InWindow))
 import Graphics.Gloss.Data.Picture
     (Picture, rectangleSolid, thickCircle, translate, pictures, color, rotate,

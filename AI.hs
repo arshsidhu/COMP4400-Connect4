@@ -1,9 +1,15 @@
+-- COMP4400 Final Project
+-- Arshdeep Sidhu 104567665
+-- Ferruccio Sisti 104807246
+-- File containing "AI" code and some helper end game functions
+
 module AI where
 
 import Data.Maybe
 import Debug.Trace(trace)
 
 import Board
+
 -- MINMAX STRATEGY
 
 maxDepth :: Int
@@ -11,6 +17,9 @@ maxDepth = 2
 
 winScore :: Int
 winScore = 10000
+
+-- debug variable used in testing
+-- to turn on command line logs, switch bool to True
 
 debug :: Bool
 debug = False

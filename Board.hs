@@ -1,13 +1,23 @@
+-- COMP4400 Final Project
+-- Arshdeep Sidhu 104567665
+-- Ferruccio Sisti 104807246
+-- File containing board information. 
+-- Dimensions and non graphical representation of the board
+-- Allows to actual tile placements and game to run
+
 module Board where
 
 import qualified Data.List 
 import qualified Data.Maybe as M
 
--- FUNCTIONS DEALING WITH BOARD
+-- BOARD TYPE DECLARATIONS
+
 type Board  = [(Move, Tile)]
 type Move   = (Int,Int)
 data Tile = EmptyTile | X | O deriving (Eq, Show)
 data Dimentions = Dim {dimN :: Int, dimM :: Int, dimK :: Int}
+
+-- FUNCTIONS DEALING WITH BOARD
 
 dim :: Dimentions
 dim = Dim 6 7 4
@@ -18,6 +28,7 @@ emptyBoard = [((x,y), EmptyTile) | x <- [1..(dimN dim)], y <- [1..(dimM dim)]]
 (??) :: Board -> Move -> Tile
 b??ij = M.fromMaybe EmptyTile (lookup ij b) 
 
+-- put = placing a piece
 put :: Board -> Tile -> Move -> Board
 put b t move = case (putMaybe b t move) of 
   Just a -> a
