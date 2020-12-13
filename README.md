@@ -13,15 +13,19 @@ You will need to be able to compile and run Haskell (.hs) files. The following a
 
 ### MacOS
 
-- ``` brew install ghc ```
-- ``` brew install cabal-install ```
-- ``` cabal install gloss ```
+``` brew install ghc ```
+
+``` brew install cabal-install ```
+
+``` cabal install gloss ```
 
 ### Linux
 
-- ``` sudo apt-get install ghc ```
-- ``` sudo apt-get install cabal-install ```
-- ``` cabal install gloss ```
+``` sudo apt-get install ghc ```
+
+``` sudo apt-get install cabal-install ```
+
+``` cabal install gloss ```
 
 ### Windows
 
@@ -32,9 +36,13 @@ Download WSL and refer to Linux commands.
 - Download or clone the rep
 - Navigate to working directory
 - Run the following command to compile the code
+
 ``` ghc Main.hs ```
+
 - Run the following command to run the executable
+
 ``` ./Main ```
+
 ---
 ### Playing the game
 
