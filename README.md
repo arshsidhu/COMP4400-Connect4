@@ -39,7 +39,7 @@ Download WSL and refer to Linux commands.
 ### Playing the game
 
 If everything was installed and executed corrected, you should see the following window appear. 
-![alt text](https://github.com/arshsidhu/COMP4400-Connect4/Example.jpg "Example")
+![alt text](https://github.com/arshsidhu/COMP4400-Connect4/blob/main/Example.png "Example")
 
 You will be using the number keys 1-7 (representing the columns) to place your tile.
 
